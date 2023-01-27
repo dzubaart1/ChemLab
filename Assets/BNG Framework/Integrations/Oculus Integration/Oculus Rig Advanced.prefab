@@ -39484,7 +39484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654777086401330119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.68, y: 1.32, z: 9.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39600,6 +39600,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f796aa4482c22f408cdd14e98bcceac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftHand: {fileID: 0}
+  RightHand: {fileID: 0}
+  LeftHandConfidence: 0
+  RightHandConfidence: 0
   LeftGrabber: {fileID: 3997476264899652494}
   RightGrabber: {fileID: 1101644460233193523}
   LeftModelHolder: {fileID: 3997476265343323752}
@@ -44924,7 +44928,7 @@ SkinnedMeshRenderer:
   m_AABB:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
-  m_DirtyAABB: 1
+  m_DirtyAABB: 0
 --- !u!1 &8327292831561758863
 GameObject:
   m_ObjectHideFlags: 0
@@ -45094,7 +45098,7 @@ SkinnedMeshRenderer:
   m_AABB:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
-  m_DirtyAABB: 1
+  m_DirtyAABB: 0
 --- !u!1 &8343846103489171089
 GameObject:
   m_ObjectHideFlags: 0
