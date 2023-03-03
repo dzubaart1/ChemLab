@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6d0857d78da89408e391181281f1ac, type: 3}
   m_Name: H2O
   m_EditorClassIdentifier: 
-  subName: H2O
-  color: {r: 0.6014151, g: 0.67239964, b: 0.8018868, a: 0.7607843}
-  weight: 0
+  SubName: H2O
+  Color: {r: 0, g: 0.74659276, b: 1, a: 0.43137255}
+  Components: []
+  Weight: 0

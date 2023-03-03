@@ -7,9 +7,9 @@ namespace Containers
 {
     public class BaseContainer : MonoBehaviour
     {
-        public SubstanceParams SubParams;
+        public Substance Substance;
         public GameObject BaseFormPrefab;
-
+        public ContainersTypes ContainersType;
         private int _index;
 
         [Inject]

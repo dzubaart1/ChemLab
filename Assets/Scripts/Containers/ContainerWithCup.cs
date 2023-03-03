@@ -6,7 +6,7 @@ namespace Containers
     public class ContainerWithCup : MonoBehaviour
     {
         [SerializeField]
-        private CupCntrl _cup;
+        private CupCntrl[] _cup;
         [SerializeField]
         private SnapZone _snapZone;
         [SerializeField]
@@ -14,9 +14,14 @@ namespace Containers
         private string _name;
         private void Awake()
         {
-            _cup.gameObject.name += _baseContainer.GetIndex();
             _snapZone.OnlyAllowNames.Clear();
-            _snapZone.OnlyAllowNames.Add(_cup.gameObject.name);
+            int i = 1;
+            foreach (CupCntrl cup in _cup)
+            {
+                cup.gameObject.name += _baseContainer.GetIndex() +"." + i.ToString();
+                _snapZone.OnlyAllowNames.Add(cup.gameObject.name);
+                i++;
+            }
         }
 
         public bool isClosed()

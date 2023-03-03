@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6d0857d78da89408e391181281f1ac, type: 3}
   m_Name: Na2HPO4
   m_EditorClassIdentifier: 
-  subName: Na2HPO4
-  color: {r: 0.7830189, g: 0.1071111, b: 0.67615104, a: 0.654902}
-  weight: 0.0852
-  components: []
+  SubName: Na2HPO4
+  Color: {r: 1, g: 0.6666666, b: 0.9348137, a: 0}
+  Components: []
+  Weight: 0

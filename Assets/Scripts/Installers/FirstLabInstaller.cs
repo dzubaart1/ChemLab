@@ -3,6 +3,7 @@ using System.Linq;
 using BNG;
 using Generators;
 using Substances;
+using Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -18,8 +19,11 @@ namespace Installers
             List<Grabber> grabbers = oculusRigInst.GetComponentsInChildren<Grabber>().ToList();
             Container.Bind<List<Grabber>>().FromInstance(grabbers).AsSingle();
             
-            SubstancesCollection substancesCollection = new SubstancesCollection();
-            Container.Bind<SubstancesCollection>().FromInstance(substancesCollection).AsSingle();
+            SubstancesParamsCollection substancesCollection = new SubstancesParamsCollection();
+            Container.Bind<SubstancesParamsCollection>().FromInstance(substancesCollection).AsSingle();
+            
+            TasksCollection tasksCollection = new TasksCollection();
+            Container.Bind<TasksCollection>().FromInstance(tasksCollection).AsSingle();
 
             IdGenerator idGenerator = new IdGenerator();
             Container.Bind<IdGenerator>().FromInstance(idGenerator).AsSingle();

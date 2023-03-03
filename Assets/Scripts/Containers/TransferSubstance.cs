@@ -3,7 +3,11 @@ using BNG;
 using System.Collections.Generic;
 using Containers;
 using Interfaces;
+using Tasks;
 using Zenject;
+//using System.Diagnostics;
+//using System.ComponentModel;
+//using System.Diagnostics;
 
 public class TransferSubstance : MonoBehaviour
 {
@@ -13,9 +17,10 @@ public class TransferSubstance : MonoBehaviour
     private bool _isAgain = false;
     private Grabber _leftGrabber, _rightGrabber;
     private IContainer _container;
+    private TasksCollection _tasksCollection;
 
     [Inject]
-    public void Construct(List<Grabber> grabbers)
+    public void Construct(List<Grabber> grabbers, TasksCollection tasksCollection)
     {
         foreach (var grabber in grabbers)
         {
@@ -28,8 +33,8 @@ public class TransferSubstance : MonoBehaviour
                 _rightGrabber = grabber;
             }
         }
+        _tasksCollection = tasksCollection;
     }
-
     private void Awake()
     {
         _container = GetComponent<IContainer>();
@@ -62,11 +67,11 @@ public class TransferSubstance : MonoBehaviour
             grabber = _leftGrabber;
         }
 
-        if (grabber?.HeldGrabbable is null || grabber.HeldGrabbable.gameObject != gameObject)
+        if (grabber.HeldGrabbable is null || grabber.HeldGrabbable.gameObject != gameObject)
         {
             return;
         }
-
+        
         Transfer(other.gameObject);
         _isAgain = true;
     }
@@ -78,36 +83,34 @@ public class TransferSubstance : MonoBehaviour
 
     private void Transfer(GameObject triggerGameObject)
     {
-        var temp = false;
-        if ( (triggerGameObject.GetComponent<ContainerWithCup>() is not null && triggerGameObject.GetComponent<ContainerWithCup>().isClosed())
-            || (GetComponent<ContainerWithCup>() is not null && GetComponent<ContainerWithCup>().isClosed()))
+        if (triggerGameObject.GetComponent<IContainer>() is null)
         {
             return;
         }
+        var temp = false;
 
-        if (_baseContainer.SubParams is null)
+        if (_baseContainer.Substance is null)
         {
+            //если это ложка
             if (!GetComponent<SpoonContainer>())
             {
                 return;
             }
-            if (triggerGameObject.GetComponent<BaseContainer>().SubParams is null)
+            if (triggerGameObject.GetComponent<BaseContainer>().Substance is null)
             { 
                 return;
             }
 
-            temp = _container.AddSubstance(triggerGameObject.GetComponent<BaseContainer>().SubParams);
-            if (temp)
-            {
-                triggerGameObject.GetComponent<IContainer>().RemoveSubstance();
-            }
+            temp = _container.AddSubstance(triggerGameObject.GetComponent<BaseContainer>().Substance);
+            if (!temp) return;
+            triggerGameObject.GetComponent<IContainer>().RemoveSubstance();
+            _tasksCollection.CheckTransferSubstance(_baseContainer, triggerGameObject.GetComponent<BaseContainer>(), _baseContainer.Substance);
             return;
         }
         
-        temp = triggerGameObject.GetComponent<IContainer>().AddSubstance(_baseContainer.SubParams);
-        if (temp)
-        {
-            _container.RemoveSubstance();
-        }
+        temp = triggerGameObject.GetComponent<IContainer>().AddSubstance(_baseContainer.Substance);
+        if (!temp) return;
+        _container.RemoveSubstance();
+        _tasksCollection.CheckTransferSubstance(_baseContainer, triggerGameObject.GetComponent<BaseContainer>(), triggerGameObject.GetComponent<BaseContainer>().Substance);
     }
 }

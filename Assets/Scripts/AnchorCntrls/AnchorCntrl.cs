@@ -8,20 +8,17 @@ namespace AnchorCntrls
     {
         private void OnTriggerStay(Collider other)
         {
-            MixContainer mixContainer = other.GetComponent<MixContainer>();
+            var mixContainer = other.GetComponent<MixContainer>();
             if (mixContainer is null)
             {
                 return;
             }
-
-            if (!GetComponent<Grabbable>().BeingHeld)
-            {
-                GetComponent<Rigidbody>().isKinematic = true;
-                GetComponent<BoxCollider>().enabled = false;
-                gameObject.transform.parent = other.transform;
-                gameObject.transform.localPosition = new Vector3(0, 0.008f, 0);
-                mixContainer.AddAnchor(this);
-            }
+            if (GetComponent<Grabbable>().BeingHeld) return;
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<BoxCollider>().enabled = false;
+            gameObject.transform.parent = other.transform;
+            gameObject.transform.localPosition = new Vector3(0, 0.008f, 0);
+            mixContainer.AddAnchor(this);
         }
     }
 }

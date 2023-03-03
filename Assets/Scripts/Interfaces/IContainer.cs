@@ -1,3 +1,4 @@
+using Containers;
 using Substances;
 
 namespace Interfaces
@@ -5,6 +6,6 @@ namespace Interfaces
     public interface IContainer
     {
         public bool RemoveSubstance();
-        public bool AddSubstance(SubstanceParams substanceParams);
+        public bool AddSubstance(Substance substance);
     }
 }

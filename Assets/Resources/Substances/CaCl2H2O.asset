@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6d0857d78da89408e391181281f1ac, type: 3}
   m_Name: CaCl2H2O
   m_EditorClassIdentifier: 
-  subName: CaCl2H2O
-  color: {r: 0.6132076, g: 0.52354044, b: 0.52354044, a: 0.7019608}
-  weight: 0
-  components:
+  SubName: CaCl2H2O
+  Color: {r: 0.5176471, g: 0.8039894, b: 1, a: 0.6156863}
+  Components:
   - {fileID: 11400000, guid: 7c5e3e99d7f181f42be5c7c2d50478c4, type: 2}
   - {fileID: 11400000, guid: 830975c53df4d2e4282dc5de7cbae570, type: 2}
+  Weight: 0

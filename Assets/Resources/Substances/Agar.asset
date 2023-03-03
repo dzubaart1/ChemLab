@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6d0857d78da89408e391181281f1ac, type: 3}
   m_Name: Agar
   m_EditorClassIdentifier: 
-  subName: Agar
-  color: {r: 0.8325191, g: 0.8867924, b: 0.33882165, a: 0}
-  weight: 0.12
-  components: []
+  SubName: Agar
+  Color: {r: 0.96039534, g: 0.9622642, b: 0.4690281, a: 0}
+  Components: []
+  Weight: 0

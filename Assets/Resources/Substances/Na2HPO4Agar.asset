@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6d0857d78da89408e391181281f1ac, type: 3}
   m_Name: Na2HPO4Agar
   m_EditorClassIdentifier: 
-  subName: Na2HPO4Agar
-  color: {r: 0.8773585, g: 0.6084654, b: 0.5255874, a: 0.7019608}
-  weight: 0
-  components:
+  SubName: Na2HPO4Agar
+  Color: {r: 0.8018868, g: 0.7543095, b: 0.6556307, a: 0}
+  Components:
   - {fileID: 11400000, guid: ddf82de018c606c4da3483ac51a3adc7, type: 2}
   - {fileID: 11400000, guid: fde453cb3fdf2e646b0d660cbe61ca9b, type: 2}
+  Weight: 0
